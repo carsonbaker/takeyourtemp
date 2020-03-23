@@ -10,7 +10,7 @@ class ContactingsController < ApplicationController
       ContactingMailer.hello(@contacting).deliver
       redirect_to success_contactings_path
     else
-      flash[:error] = "Message could not be delivered."
+      flash.now[:error] = "Message could not be delivered."
       render 'new'
     end
   end

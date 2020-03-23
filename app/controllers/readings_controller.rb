@@ -52,7 +52,7 @@ class ReadingsController < ApplicationController
 
     else
 
-      flash[:error] = "Temperature reading could not be recorded."
+      flash.now[:error] = "Temperature reading could not be recorded."
       render 'index'
     end
 

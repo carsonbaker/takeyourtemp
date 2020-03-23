@@ -1,7 +1,6 @@
 class ReadingsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
-  after_action :set_browser_uuid
 
   def index
 
@@ -13,6 +12,8 @@ class ReadingsController < ApplicationController
       @prev = Reading.where(
         browser_uuid: session[:browser_uuid],
         household_person: household_person).order('id desc').first
+    else
+      session[:browser_uuid] = SecureRandom.uuid
     end
 
     @reading = Reading.new(household_person: household_person)
@@ -67,10 +68,6 @@ class ReadingsController < ApplicationController
   end
 
   private
-
-  def set_browser_uuid
-    session[:browser_uuid] = SecureRandom.uuid unless session[:browser_uuid]
-  end
 
   def reading_params
     params.require(:reading).permit(:site, :zipcode, :sex, :temp_f, :age, :household_person, :browser_uuid, :sym_cough, :sym_short_breath, :sym_fatigue, :sym_sore_throat, :sym_runny_nose, :sym_aches, :sym_vomiting, :sym_diarrhea)

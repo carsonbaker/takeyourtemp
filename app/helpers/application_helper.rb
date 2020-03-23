@@ -35,7 +35,7 @@ module ApplicationHelper
     <meta property="og:url" content="https://www.takeyourtemp.org" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="#TakeYourTemp" />
-    <meta property="og:description" content="Stop the spread of COVID-19 by contributing to the most important crowdsourcing operation in US history." />
+    <meta property="og:description" content="Stop COVID-19 by crowdsourcing your temperature for health officials." />
     <meta property="og:image" content="http://takeyourtemp.org.s3.amazonaws.com/thermometer.jpg" />
     ) + stylesheet_link_tag('application', media: 'all') + %Q(<body>
     <div class='mt1 flex flex-center' id='vcenter' style='min-height:95vh'>

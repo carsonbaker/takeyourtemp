@@ -31,7 +31,13 @@ module ApplicationHelper
     <meta content='Submit your temperature and join the most important crowd sourcing operation in US history.' name='description'>
     <meta content='covid, temperature, fever, data, open data, data source, reporting, medical, coronavirus' name='keywords'>
     <meta content='en' name='language'>
-    <meta content='index, follow' name='robots'>) + stylesheet_link_tag('application', media: 'all') + %Q(<body>
+    <meta content='index, follow' name='robots'>
+    <meta property="og:url" content="https://www.takeyourtemp.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="#TakeYourTemp" />
+    <meta property="og:description" content="Stop the spread of COVID-19 by contributing to the most important crowdsourcing operation in US history." />
+    <meta property="og:image" content="https://www.takeyourtemp.org/thermometer.jpg" />
+    ) + stylesheet_link_tag('application', media: 'all') + %Q(<body>
     <div class='mt1 flex flex-center' id='vcenter' style='min-height:95vh'>
     <div class='flex-auto'><main class='container'>).html_safe
   end

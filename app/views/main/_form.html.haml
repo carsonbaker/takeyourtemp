@@ -1,0 +1,129 @@
+= flashes
+
+#form-outer.bg-softer.p1
+
+  = simple_form_for(@reading) do |f|
+
+    = f.hidden_field :browser_uuid, value: @browser_uuid
+    = f.hidden_field :household_person, value: @household_person
+
+    = recaptcha_v3(action: "homepage")
+
+    = f.error_notification
+    = f.error :base
+
+    .col-12
+      .p2
+        .clearfix
+
+          .left
+            .bold Household Members:
+          - 0.upto(@household_count-1).each_with_index do |u, index|
+            - if (index + 1) == @household_person
+              .left.ml2.px1.bg-darken-3.white
+                = index + 1
+            - else
+              .left.ml2
+                = link_to (index+1), "/?p=#{index+1}"
+
+          - if @household_count < 10
+            .left.ml2
+              = link_to "(Add +)", "/add-person"
+
+    .clearfix.col-12
+      .col-12
+
+        .p3
+
+          = form_group(class: 'big-group') do
+
+            .col.col-6
+              = f.label :temp_f do
+                Temperature*
+                %br
+                %small.sm-show.muted
+                  (degrees Fahrenheit)
+                %small.sm-hide.muted
+                  (deg. Fahrenheit)
+
+            .col.col-6
+              - placeholder = @prev&.temp_f || "98.6"
+              = f.number_field :temp_f, min: 94.0, max: 110.0, step: 0.1, class: "col-8", placeholder: "#{placeholder}°F", style: 'width: 8em;'
+              = f.error :temp_f
+
+
+          = form_group(class: 'big-group') do
+
+            .col.col-6
+              = f.label :zipcode do
+                Zip code*
+                %br
+                %small.muted (postal code)
+            .col.col-6
+              = f.text_field :zipcode, style: "width: 8em;", value: @prev&.zipcode, class: 'zip-lookup-field-zipcode', pattern: "[0-9.]+"
+              = f.error :zipcode
+
+
+          = form_group do
+
+            .col.col-3.mb1
+              = f.label :age, class: 'mb1' do
+                .xs-show Age <small class='muted'>(optional)</small>
+                .xs-hide Age
+
+              %br
+              = f.number_field :age, min: 0, max: 110, style: "width: 90%", value: @prev&.age, placeholder: "yrs old"
+              = f.error :age
+
+            .col.col-9
+              = f.label :sex, class: 'mb1' do
+                .xs-show Sex <small class='muted'>(optional)</small>
+                .xs-hide Sex
+
+              %br
+              .btn-grp
+                %span<>
+                  = f.radio_button :sex, 'm', checked: @prev&.sex == 'm'
+                  = f.label :sex, "Male", value: 'm'
+                %span<>
+                  = f.radio_button :sex, 'f', checked: @prev&.sex == 'f'
+                  = f.label :sex, "Female", value: 'f'
+
+                %span<>
+                  = f.radio_button :sex, 'o', checked: @prev&.sex == 'o'
+                  = f.label :sex, "Other", value: 'o'
+
+          = form_group(class: 'no-border') do
+
+            .bg-softer.rounded
+              = f.label :symptoms do
+                Are you experiencing any of the following symptoms?
+
+              %br
+              %small.muted (choose all that apply)
+              .symptoms.mt2
+                = f.check_box :sym_cough, checked: @prev&.sym_cough
+                = f.label :sym_cough, "cough", class: 'mb1'
+                = f.check_box :sym_short_breath, checked: @prev&.sym_short_breath
+                = f.label :sym_short_breath, "shortness of breath", class: 'mb1'
+                = f.check_box :sym_fatigue, checked: @prev&.sym_fatigue
+                = f.label :sym_fatigue, "fatigue", class: 'mb1'
+                = f.check_box :sym_sore_throat, checked: @prev&.sym_sore_throat
+                = f.label :sym_sore_throat, "sore throat", class: 'mb1'
+                = f.check_box :sym_runny_nose, checked: @prev&.sym_runny_nose
+                = f.label :sym_runny_nose, "runny nose", class: 'mb1'
+                = f.check_box :sym_aches, checked: @prev&.sym_aches
+                = f.label :sym_aches, "aches", class: 'mb1'
+                = f.check_box :sym_vomiting, checked: @prev&.sym_vomiting
+                = f.label :sym_vomiting, "vomiting", class: 'mb1'
+                = f.check_box :sym_diarrhea, checked: @prev&.sym_diarrhea
+                = f.label :sym_diarrhea, "diarrhea", class: 'mb1'
+
+              =# f.select :sex, options_for_select([["male", "m"], ["female", "f"], ["other", "o"]], @prev&.sex), {}, style: "width: 8em"
+              =# f.error :sex
+
+
+          - if @household_count > 1
+            = f.submit "Submit Temperature for Person #{@household_person}", class: "btn btn-primary btn-lg"
+          - else
+            = f.submit "Submit Temperature", class: "btn btn-primary btn-lg"

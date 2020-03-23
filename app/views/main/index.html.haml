@@ -1,0 +1,79 @@
+<script src="https://www.google.com/recaptcha/api.js?render=6Lf0neIUAAAAANTyB0N5EgmfgnUxqQxzi-NBjaki"></script>
+
+.container.clearfix
+
+  %header.col.col-12.md-col-5
+
+    #cta{class: @household_count > 1 ? 'sm-show' : ''}
+
+      <h2 class='serif center' id='pledge'>
+      <small class='lite muted'>pledge to</small>
+      <br>
+      <strong style="color: orange;">#TakeYourTemp</strong>
+      <br>
+      <span class='lite muted'>every day</span>
+      </h2>
+      <div class="center">
+      <big><strong>Stop the spread</strong> of COVID-19 by <br> contributing to the <em>most important</em><br> crowdsourcing operation in US history.</big></div>
+
+      <hr class='mt3 mb3' style='width: 50%;'>
+      <div class="line-squeeze mx-auto">
+
+      <div class="center sm-hide">
+      <a href="#" id='gs'><span class="h2">Begin Data Entry</span></a>
+      <br>
+      <br>
+      </div>
+
+      <p><b>How?</b></p>
+      <p>Submit your temperature and symptoms daily. This data will be available to public health officials.</p>
+      <p><b>Why?</b></p>
+      <p>Help provide data on where COVID-19 is spreading so that health officials can better allocate resources. By taking your temperature daily, you provide real-time actionable data.</p>
+
+      </div>
+
+      - if browser.device.mobile?
+        <br>
+        <div class="center"><button id="share" class="btn btn-secondary">Share this!</button></div>
+
+      <br>
+      <hr style='width: 50%'>
+
+  
+    <br>
+    <footer class='container'>
+    <p class='mt0 small center'>
+    <span class='muted'>Note: Open access to data is provided to health care officials.</span>
+    <br>
+    <a href="/contactings/new"><b>Contact us</b></a>
+    for inquiries. Read our
+    <a href="/privacy"><b>privacy policy</b></a>. Read our
+    <a href="/faq"><b>FAQ</b></a>.
+    </p>
+    <br>
+    </footer>
+
+  %article#form.col.col-12.md-col-7.md-px3{class: @household_count > 1 ? '' : 'sm-show'}
+    = render partial: 'form'
+
+<br>
+
+:javascript
+  const share = document.getElementById('share');
+  const gs = document.getElementById('gs');
+  if(share) {
+    share.addEventListener('click', function() {
+      navigator.share({
+        title: '#DailyTemperaturePledge',
+        text: 'Join the most important crowd-sourcing operation in US history.',
+        url: 'https://www.takeyourtemp.org'
+      });
+    });
+  }
+  if(gs) {
+    gs.addEventListener('click', function(e) {
+      document.getElementById('form').classList.toggle("sm-show");
+      document.getElementById('cta').classList.toggle("sm-show");
+      e.preventDefault();
+    });
+  }

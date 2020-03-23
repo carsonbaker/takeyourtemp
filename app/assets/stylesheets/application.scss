@@ -1,0 +1,166 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require 'bass'
+ *= require_self
+ */
+
+body {
+  padding: 0 1em;
+}
+
+@media (max-width: 52em) {
+  #vcenter { height: inherit !important; min-height: inherit !important;}
+}
+
+input {
+  box-shadow: 0 2px 3px rgba(0,0,0,0.06)
+}
+
+#form-outer {
+  border: 1px solid #f1f1f4;
+  border-radius: .25em;
+}
+
+.alert {
+  padding: .75em 1em;
+  margin-bottom: 1em;
+  background: #fff;
+}
+
+.alert-alert {
+  border-bottom: 1px solid orange;
+  background: #fff6e6;
+  color: #9d4311;
+}
+
+.alert-error {
+  background: #ffe6e6;
+  color: indianred;
+  border-bottom: 1px solid indianred;
+}
+
+.alert-success {
+  background: #ebe3ff;
+  color: #1a0b38;
+  border-bottom: 1px solid mediumpurple;
+}
+
+.alert-info {
+  color: #0d2c9e;
+  border-bottom: 1px solid #3b65ff;
+  background: #e6ebff;
+}
+
+.group {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.big-group {
+  label {
+    font-size: 125% !important;
+  }
+  input {
+    padding: calc(1.25rem + ((1vw - 0.3rem) * 0.5556)) calc(.75rem + ((1vw - 0.3rem) * 0.5556)) !important;
+    font-size: calc(1.5rem + ((1vw - 0.5rem) * 0.5556));
+  }
+}
+
+.grecaptcha-badge{
+  visibility: collapse !important;  
+}
+
+.btn-grp {
+  span {
+    display: inline-block;
+  }
+  label {
+    box-shadow: 0 2px 3px rgba(0,0,0,0.06);
+    user-select: none;
+    padding: .5rem;
+    background: white;
+    &:active {
+      background: #e6ebff;
+    }
+    border: 1px solid #ced4da;
+  }
+  span:first-child label {
+    border-right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  span:last-child label {
+    border-left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  input[type="radio"]:checked+label{
+    background: #4288e0;
+    color: white;
+  } 
+  input {
+    display: none;
+  }
+}
+
+.symptoms {
+
+  label {
+    box-shadow: 0 2px 3px rgba(0,0,0,0.06);
+    border-radius: .25em;
+    user-select: none;
+    padding: .5rem;
+    background: white;
+    &:active {
+      background: #e6ebff;
+    }
+    border: 1px solid #ced4da;
+  }
+  span:first-child label {
+    border-right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  span:last-child label {
+    border-left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  input[type="checkbox"]:checked+label{
+    background: #4288e0;
+    color: white;
+  } 
+  input {
+    display: none;
+  }
+}
+
+big strong {
+  text-decoration: none;
+  background-position-y: -0%;
+  background-image: linear-gradient( white 40%, gold 60%);
+  transition: background 500ms ease;
+  background-size: 2px;
+  background-size: auto 175%;
+  font-style: initial;
+}
+
+@media (max-width: 52em) {
+  article {
+    max-width: 34em;
+    margin: 0 auto !important;
+    float: none !important;
+    clear: both;
+  }
+}

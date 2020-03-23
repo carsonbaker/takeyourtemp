@@ -63,11 +63,6 @@ class ReadingsController < ApplicationController
 
   end
 
-  def slow
-    ActiveRecord::Base.connection.execute("SELECT pg_sleep(8)")
-    render plain: "that was slow!"
-  end
-
   def debug
     @readings = Reading.order('created_at desc').limit(500).all
   end

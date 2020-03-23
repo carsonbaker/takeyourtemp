@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
   resources :readings, only: [:new, :create, :index] do
     get "/debug", action: :debug, on: :collection
-    get "/slowslowslow", action: :slow, on: :collection
   end
   get "/add-person" => 'readings#add_person'
 

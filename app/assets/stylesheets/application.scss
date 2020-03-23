@@ -77,6 +77,7 @@ input, textarea {
     @supports (-moz-appearance:none) {
       font-size: 1.5rem !important;
       height: 3rem !important;
+      padding: 0rem 1rem !important;
     }
   }
 }

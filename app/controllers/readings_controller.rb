@@ -4,19 +4,19 @@ class ReadingsController < ApplicationController
 
   def index
 
-    household_person = (params[:p] ||= 1).to_i
+    @household_person = (params[:p] ||= 1).to_i
     @household_count = session[:household_count] || 1
 
     if session[:browser_uuid]
       # Return visit
       @prev = Reading.where(
         browser_uuid: session[:browser_uuid],
-        household_person: household_person).order('id desc').first
+        household_person: @household_person).order('id desc').first
     else
       session[:browser_uuid] = SecureRandom.uuid
     end
 
-    @reading = Reading.new(household_person: household_person)
+    @reading = Reading.new(household_person: @household_person)
 
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_054414) do
+ActiveRecord::Schema.define(version: 2020_03_23_210327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 2020_03_23_054414) do
     t.boolean "sym_vomiting"
     t.boolean "sym_diarrhea"
     t.index ["browser_uuid"], name: "index_readings_on_browser_uuid"
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.string "email"
+    t.integer "hour_of_day"
+    t.string "phone"
   end
 
   create_table "users", force: :cascade do |t|

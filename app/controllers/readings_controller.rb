@@ -59,10 +59,6 @@ class ReadingsController < ApplicationController
 
   end
 
-  def cdc
-
-  end
-
   def debug
     @readings = Reading.order('created_at desc').limit(500).all
   end

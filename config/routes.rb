@@ -13,10 +13,18 @@ Rails.application.routes.draw do
 
   end
 
+  resources :reminders do
+
+  end
+
+  controller :reminders do
+    get "/cdc",     action: :new
+  end
+
   controller :main do
     post "/token",  action: :token
     get "/faq",     action: :faq, as: :faq
-    get "/cdc",     action: :cdc, as: :cdc
+
     get "/privacy", action: :privacy
     get "/terms",   action: :terms
   end

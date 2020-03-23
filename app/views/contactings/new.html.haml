@@ -1,0 +1,31 @@
+.md-mt3.px2
+
+  .line-wide
+
+    %h4.muted.serif.m0= link_to "TakeYourTemp.org", root_path
+    %h1.h2.bold.mt1 Contact Us
+
+    %br
+
+    = form_with model: @contacting, remote: false do |f|
+      
+      .hide= flashes
+
+      .clearfix
+
+        = f.label :from, class: "block", label: "Your Email", class: 'mb1'
+        = errors_for(f, :from)
+        %br
+        = f.email_field :from, placeholder: 'email@example.org'
+        
+
+      .mt2
+        = f.label :message, class: "block", label: "Message", class: 'mb1'
+        = errors_for(f, :message)
+        %br
+        = f.text_area :message, placeholder: 'Leave us a note...', cols: 50, rows: 8
+        
+
+      .clearfix
+
+      = f.submit "Send Message", class: "btn btn-primary mt2"

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails',  '~> 6.0.2.1'
+gem 'rails',             '~> 6.0.2.1'
 # Use Puma as the app server
 gem 'puma',              '~> 3.12.0'
 # Use SCSS for stylesheets
@@ -14,9 +14,6 @@ gem 'uglifier',          '>= 1.3.0'
 
 # Memcaching
 gem 'dalli',             '~> 2.7'
-
-# Better forms
-gem 'simple_form',       '~> 5.0'
 
 # Browser
 gem 'browser'
@@ -44,7 +41,6 @@ end
 
 # Haml templating
 gem 'hamlit'
-gem 'slim'
 
 # Postgres
 gem 'pg'

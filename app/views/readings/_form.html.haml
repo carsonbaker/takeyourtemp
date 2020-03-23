@@ -2,15 +2,13 @@
 
 #form-outer.bg-softer.p1
 
-  = simple_form_for(@reading) do |f|
+  = form_with model: @reading, remote: false do |f|
 
-    = f.hidden_field :browser_uuid, value: @browser_uuid
-    = f.hidden_field :household_person, value: @household_person
+    = f.hidden_field :browser_uuid, value: session[:browser_uuid]
+    = f.hidden_field :household_person
 
     = recaptcha_v3(action: "homepage")
 
-    = f.error_notification
-    = f.error :base
 
     .col-12
       .p2
@@ -49,7 +47,7 @@
             .col.col-6
               - placeholder = @prev&.temp_f || "98.6"
               = f.number_field :temp_f, min: 94.0, max: 110.0, step: 0.1, class: "col-8", placeholder: "#{placeholder}°F", style: 'width: 8em;'
-              = f.error :temp_f
+              = errors_for(f, :temp_f)
 
 
           = form_group(class: 'big-group') do
@@ -61,7 +59,7 @@
                 %small.muted (postal code)
             .col.col-6
               = f.text_field :zipcode, style: "width: 8em;", value: @prev&.zipcode, class: 'zip-lookup-field-zipcode', pattern: "[0-9.]+"
-              = f.error :zipcode
+              = errors_for(f, :zipcode)
 
 
           = form_group do
@@ -73,7 +71,7 @@
 
               %br
               = f.number_field :age, min: 0, max: 110, style: "width: 90%", value: @prev&.age, placeholder: "yrs old"
-              = f.error :age
+              = errors_for(f, :age)
 
             .col.col-9
               = f.label :sex, class: 'mb1' do
@@ -83,15 +81,15 @@
               %br
               .btn-grp
                 %span<>
-                  = f.radio_button :sex, 'm', checked: @prev&.sex == 'm'
-                  = f.label :sex, "Male", value: 'm'
+                  = f.radio_button :sex, 'm', checked: @prev&.sex == 'm', id: :m_sex
+                  = f.label :sex, "Male", value: 'm', for: :m_sex
                 %span<>
-                  = f.radio_button :sex, 'f', checked: @prev&.sex == 'f'
-                  = f.label :sex, "Female", value: 'f'
+                  = f.radio_button :sex, 'f', checked: @prev&.sex == 'f', id: :f_sex
+                  = f.label :sex, "Female", value: 'f', for: :f_sex
 
                 %span<>
-                  = f.radio_button :sex, 'o', checked: @prev&.sex == 'o'
-                  = f.label :sex, "Other", value: 'o'
+                  = f.radio_button :sex, 'o', checked: @prev&.sex == 'o', id: :f_other
+                  = f.label :sex, "Other", value: 'o', for: :f_other
 
           = form_group(class: 'no-border') do
 
@@ -102,25 +100,29 @@
               %br
               %small.muted (choose all that apply)
               .symptoms.mt2
-                = f.check_box :sym_cough, checked: @prev&.sym_cough
-                = f.label :sym_cough, "cough", class: 'mb1'
-                = f.check_box :sym_short_breath, checked: @prev&.sym_short_breath
-                = f.label :sym_short_breath, "shortness of breath", class: 'mb1'
-                = f.check_box :sym_fatigue, checked: @prev&.sym_fatigue
-                = f.label :sym_fatigue, "fatigue", class: 'mb1'
-                = f.check_box :sym_sore_throat, checked: @prev&.sym_sore_throat
-                = f.label :sym_sore_throat, "sore throat", class: 'mb1'
-                = f.check_box :sym_runny_nose, checked: @prev&.sym_runny_nose
-                = f.label :sym_runny_nose, "runny nose", class: 'mb1'
-                = f.check_box :sym_aches, checked: @prev&.sym_aches
-                = f.label :sym_aches, "aches", class: 'mb1'
-                = f.check_box :sym_vomiting, checked: @prev&.sym_vomiting
-                = f.label :sym_vomiting, "vomiting", class: 'mb1'
-                = f.check_box :sym_diarrhea, checked: @prev&.sym_diarrhea
-                = f.label :sym_diarrhea, "diarrhea", class: 'mb1'
+                = f.check_box :sym_cough, checked: @prev&.sym_cough, id: :s1
+                = f.label :sym_cough, "cough", class: 'mb1', for: :s1
 
-              =# f.select :sex, options_for_select([["male", "m"], ["female", "f"], ["other", "o"]], @prev&.sex), {}, style: "width: 8em"
-              =# f.error :sex
+                = f.check_box :sym_short_breath, checked: @prev&.sym_short_breath, id: :s2
+                = f.label :sym_short_breath, "shortness of breath", class: 'mb1', for: :s2
+
+                = f.check_box :sym_fatigue, checked: @prev&.sym_fatigue, id: :s3
+                = f.label :sym_fatigue, "fatigue", class: 'mb1', for: :s3
+
+                = f.check_box :sym_sore_throat, checked: @prev&.sym_sore_throat, id: :s4
+                = f.label :sym_sore_throat, "sore throat", class: 'mb1', for: :s4
+
+                = f.check_box :sym_runny_nose, checked: @prev&.sym_runny_nose, id: :s5
+                = f.label :sym_runny_nose, "runny nose", class: 'mb1', for: :s5
+
+                = f.check_box :sym_aches, checked: @prev&.sym_aches, id: :s6
+                = f.label :sym_aches, "aches", class: 'mb1', for: :s6
+
+                = f.check_box :sym_vomiting, checked: @prev&.sym_vomiting, id: :s7
+                = f.label :sym_vomiting, "vomiting", class: 'mb1', for: :s7
+
+                = f.check_box :sym_diarrhea, checked: @prev&.sym_diarrhea, id: :s8
+                = f.label :sym_diarrhea, "diarrhea", class: 'mb1', for: :s8
 
 
           - if @household_count > 1

@@ -1,22 +1,21 @@
 Rails.application.routes.draw do
   
-  resources :readings, only: [:new, :create, :index]
+  resources :readings, only: [:new, :create, :index] do
+    get "/debug", action: :debug, on: :collection
+  end
+  get "/add-person" => 'readings#add_person'
 
   resources :contactings do
     get "success", on: :collection, as: :success
   end
 
-  post "/token" => 'main#token'
-  get "/add-person" => 'main#add_person'
+  controller :main do
+    post "/token",  action: :token
+    get "/faq",     action: :faq, as: :faq
+    get "/cdc",     action: :cdc, as: :cdc
+    get "/privacy", action: :privacy
+    get "/terms",   action: :terms
+  end
 
-  # get '/sign_in' => 'sessions#new', as: 'sign_in'
-  # delete '/sign_out' => 'sessions#destroy', as: 'sign_out'
-  # get '/sign_up' => 'users#new', as: 'sign_up'
-
-  get "/faq" => 'main#faq', as: :faq
-  get "/cdc" => 'main#cdc', as: :cdc
-  get "/privacy" => 'main#privacy'
-  get "/terms" => 'main#terms'
-
-  root "main#index"
+  root "readings#index"
 end

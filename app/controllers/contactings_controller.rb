@@ -11,7 +11,7 @@ class ContactingsController < ApplicationController
       redirect_to success_contactings_path
     else
       flash[:error] = "Message could not be delivered."
-      redirect_to new_contacting_path
+      render 'new'
     end
   end
   

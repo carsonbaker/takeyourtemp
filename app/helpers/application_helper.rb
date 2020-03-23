@@ -5,6 +5,10 @@ module ApplicationHelper
     @page_title = (@page_title.nil? ? t : @page_title + ' &mdash; '.html_safe + t).html_safe
   end
 
+  def errors_for(form, field)
+    content_tag(:span, form.object.errors[field].try(:first), class: ' alert-alert')
+  end
+
   def flashes
     marks = { notice: "* ", error: "✗ ", success: "✓ ", alert: '✦ ', info: '✦ '}
     ActiveSupport::SafeBuffer.new.tap do |flash_list|

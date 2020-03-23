@@ -1,0 +1,35 @@
+- page_title "Data"
+= stylesheet_link_tag 'isolate/internal'
+
+%br
+.line-wide
+
+  %h4.muted.m0
+    = link_to "TakeYourTemp.org", root_path
+  %h2.mt2.mb0.serif DATA
+
+  %br
+
+  .alert.alert-info
+    To receive alerts when new data is available, please email
+    <a href="mailto:data@takeyourtemp.org">data@takeyourtemp.org</a> with your request.
+
+  %br/
+
+  %table.table.table-light.col-12.mxn2
+    %thead
+      %tr
+        %th Time
+        %th Download Link
+        %th Records
+        %th Format
+    %tbody
+      %tr
+        %td.py1
+          Mon, Mar 23 @ 1810 UTC
+        %td.py1
+          = link_to "2020-03-23_18-10-49.dump", "https://takeyourtemp.org.s3.amazonaws.com/2020-03-23_18-10-49.dump"
+        %td.py1
+          48
+        %td.py1
+          Postgres

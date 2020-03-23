@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     get "success", on: :collection, as: :success
   end
 
+  resources :data do
+
+  end
+
   controller :main do
     post "/token",  action: :token
     get "/faq",     action: :faq, as: :faq

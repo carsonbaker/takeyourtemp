@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_210327) do
+ActiveRecord::Schema.define(version: 2020_03_24_180749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_03_23_210327) do
     t.boolean "sym_aches"
     t.boolean "sym_vomiting"
     t.boolean "sym_diarrhea"
+    t.boolean "sym_none_of_these"
     t.index ["browser_uuid"], name: "index_readings_on_browser_uuid"
   end
 

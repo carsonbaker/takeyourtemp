@@ -16,7 +16,8 @@ class Reading < ApplicationRecord
     sym_runny_nose: "runny nose",
     sym_aches: "aches",
     sym_vomiting: "vomiting",
-    sym_diarrhea: "diarrhea"
+    sym_diarrhea: "diarrhea",
+    sym_none_of_these: 'none of these'
   }
 
   def humanized_symptoms

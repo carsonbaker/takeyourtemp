@@ -100,32 +100,41 @@
               %br
               %small.muted (choose all that apply)
               .symptoms.mt2
-                = f.check_box :sym_cough, checked: @prev&.sym_cough, id: :s1
+                = f.check_box :sym_cough, checked: @prev&.sym_cough, id: :s1, class: 'sym'
                 = f.label :sym_cough, "cough", class: 'mb1', for: :s1
 
-                = f.check_box :sym_short_breath, checked: @prev&.sym_short_breath, id: :s2
+                = f.check_box :sym_short_breath, checked: @prev&.sym_short_breath, id: :s2, class: 'sym'
                 = f.label :sym_short_breath, "shortness of breath", class: 'mb1', for: :s2
 
-                = f.check_box :sym_fatigue, checked: @prev&.sym_fatigue, id: :s3
+                = f.check_box :sym_fatigue, checked: @prev&.sym_fatigue, id: :s3, class: 'sym'
                 = f.label :sym_fatigue, "fatigue", class: 'mb1', for: :s3
 
-                = f.check_box :sym_sore_throat, checked: @prev&.sym_sore_throat, id: :s4
+                = f.check_box :sym_sore_throat, checked: @prev&.sym_sore_throat, id: :s4, class: 'sym'
                 = f.label :sym_sore_throat, "sore throat", class: 'mb1', for: :s4
 
-                = f.check_box :sym_runny_nose, checked: @prev&.sym_runny_nose, id: :s5
+                = f.check_box :sym_runny_nose, checked: @prev&.sym_runny_nose, id: :s5, class: 'sym'
                 = f.label :sym_runny_nose, "runny nose", class: 'mb1', for: :s5
 
-                = f.check_box :sym_aches, checked: @prev&.sym_aches, id: :s6
+                = f.check_box :sym_aches, checked: @prev&.sym_aches, id: :s6, class: 'sym'
                 = f.label :sym_aches, "aches", class: 'mb1', for: :s6
 
-                = f.check_box :sym_vomiting, checked: @prev&.sym_vomiting, id: :s7
+                = f.check_box :sym_vomiting, checked: @prev&.sym_vomiting, id: :s7, class: 'sym'
                 = f.label :sym_vomiting, "vomiting", class: 'mb1', for: :s7
 
-                = f.check_box :sym_diarrhea, checked: @prev&.sym_diarrhea, id: :s8
+                = f.check_box :sym_diarrhea, checked: @prev&.sym_diarrhea, id: :s8, class: 'sym'
                 = f.label :sym_diarrhea, "diarrhea", class: 'mb1', for: :s8
 
+                = f.check_box :sym_none_of_these, checked: @prev&.sym_none_of_these, id: :none_of_these
+                = f.label :sym_none_of_these, "<em>none of these</em>".html_safe, class: 'mb1', for: :none_of_these
 
           - if @household_count > 1
             = f.submit "Submit Temperature for Person #{@household_person}", class: "btn btn-primary btn-lg"
           - else
             = f.submit "Submit Temperature", class: "btn btn-primary btn-lg"
+
+:javascript
+  document.getElementById('none_of_these').addEventListener('change', function() {
+    document.querySelectorAll(".symptoms .sym").forEach(function(input) {
+      input.checked = false;
+    });
+  })

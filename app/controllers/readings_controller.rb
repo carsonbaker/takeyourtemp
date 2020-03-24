@@ -66,7 +66,7 @@ class ReadingsController < ApplicationController
   private
 
   def reading_params
-    params.require(:reading).permit(:site, :zipcode, :sex, :temp_f, :age, :household_person, :browser_uuid, :sym_cough, :sym_short_breath, :sym_fatigue, :sym_sore_throat, :sym_runny_nose, :sym_aches, :sym_vomiting, :sym_diarrhea)
+    params.require(:reading).permit(:site, :zipcode, :sex, :temp_f, :age, :household_person, :browser_uuid, :sym_cough, :sym_short_breath, :sym_fatigue, :sym_sore_throat, :sym_runny_nose, :sym_aches, :sym_vomiting, :sym_diarrhea, :sym_none_of_these)
   end
 
 end

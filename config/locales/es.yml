@@ -40,7 +40,7 @@ es:
   none_of_these: ninguno de esos
 
   # Success page
-  thank_you_for_adding_to_the_dataset: Gracias por su information.
+  thank_you_for_adding_to_the_dataset: Gracias por su información.
   please_submit_tomorrow: Por favor no se olvide de repetir el proceso mañana.
   want_a_reminder: Si quiere un recordatorio dejenos su direccion de mail o número telefónico para que podamos mandarle un SMS.
   privacy_note: <b>Nota:</b> Su contacto no está de ninguna manera asociado a su información médica.

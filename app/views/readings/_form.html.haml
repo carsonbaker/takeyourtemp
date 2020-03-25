@@ -1,6 +1,6 @@
 = flashes
 
-#form-outer.bg-softer.p1
+#form-outer.bg-softer.p1.mt2
 
   = form_with model: @reading, remote: false do |f|
 
@@ -15,7 +15,7 @@
         .clearfix
 
           .left
-            .bold Household Members:
+            .bold= t(:household_members)
           - 0.upto(@household_count-1).each_with_index do |u, index|
             - if (index + 1) == @household_person
               .left.ml2.px1.bg-darken-3.white
@@ -37,12 +37,10 @@
 
             .col.col-6
               = f.label :temp_f do
-                Temperature*
+                = t(:temperature) + '*'
                 %br
-                %small.sm-show.muted
-                  (degrees Fahrenheit)
-                %small.sm-hide.muted
-                  (deg. Fahrenheit)
+                %small.sm-show.muted= t(:degrees_f)
+                %small.sm-hide.muted= t(:degrees_f_short)
 
             .col.col-6
               - placeholder = @prev&.temp_f || "98.6"
@@ -54,9 +52,9 @@
 
             .col.col-6
               = f.label :zipcode do
-                Zip code*
+                = t(:zip_code) + '*'
                 %br
-                %small.muted (postal code)
+                %small.muted= t(:postal_code_clarify)
             .col.col-6
               = f.text_field :zipcode, style: "width: 8em;", value: @prev&.zipcode, class: 'zip-lookup-field-zipcode', pattern: "[0-9]*", inputmode: 'numeric'
               = errors_for(f, :zipcode)
@@ -66,8 +64,10 @@
 
             .col.col-4.mb1
               = f.label :age, class: 'mb1' do
-                .xs-show Age <small class='muted'>(optional)</small>
-                .xs-hide Age
+                .xs-show
+                  = t(:age)
+                  %small.muted= "(#{t(:optional)})"
+                .xs-hide= t(:age)
 
               %br
               = f.number_field :age, min: 0, max: 110, style: "width: 80%", value: @prev&.age, placeholder: "yrs old"
@@ -75,30 +75,31 @@
 
             .col.col-8
               = f.label :sex, class: 'mb1' do
-                .xs-show Sex <small class='muted'>(optional)</small>
-                .xs-hide Sex
+                .xs-show
+                  = t(:sex)
+                  %small.muted= "(#{t(:optional)})"
+                .xs-hide= t(:sex)
 
               %br
               .btn-grp
                 %span<>
                   = f.radio_button :sex, 'm', checked: @prev&.sex == 'm', id: :m_sex
-                  = f.label :sex, "Male", value: 'm', for: :m_sex
+                  = f.label :sex, t(:male), value: 'm', for: :m_sex
                 %span<>
                   = f.radio_button :sex, 'f', checked: @prev&.sex == 'f', id: :f_sex
-                  = f.label :sex, "Female", value: 'f', for: :f_sex
+                  = f.label :sex, t(:female), value: 'f', for: :f_sex
 
                 %span<>
                   = f.radio_button :sex, 'o', checked: @prev&.sex == 'o', id: :f_other
-                  = f.label :sex, "Other", value: 'o', for: :f_other
+                  = f.label :sex, t(:other), value: 'o', for: :f_other
 
           = form_group(class: 'no-border') do
 
             .bg-softer.rounded
-              = f.label :symptoms do
-                Are you experiencing any of the following symptoms?
+              = f.label :symptoms, t(:experiencing_any_symptoms)
 
               %br
-              %small.muted (choose all that apply)
+              %small.muted= "(#{t(:choose_all_that_apply)})"
               .symptoms.mt2
                 = f.check_box :sym_cough, checked: @prev&.sym_cough, id: :s1, class: 'sym'
                 = f.label :sym_cough, "cough", class: 'mb1', for: :s1
@@ -128,9 +129,9 @@
                 = f.label :sym_none_of_these, "<em>none of these</em>".html_safe, class: 'mb1', for: :none_of_these
 
           - if @household_count > 1
-            = f.submit "Submit Temperature for Person #{@household_person}", class: "btn btn-primary btn-lg"
+            = f.submit "#{t(:submit_temperature_for_person)} #{@household_person}", class: "btn btn-primary btn-lg"
           - else
-            = f.submit "Submit Temperature", class: "btn btn-primary btn-lg"
+            = f.submit t(:submit_temperature), class: "btn btn-primary btn-lg"
 
 :javascript
   document.getElementById('none_of_these').addEventListener('change', function() {

@@ -1,0 +1,25 @@
+es:
+  pledge_to: "tu promesa"
+  every_day: "cada día"
+  stop_the_spread_cta: <strong>Ayúdanos a parar el COVID-19</strong><br>Sabiendo quien tiene fiebre o síntomas juntos<br> podemos proveer valiosa información a los sistemas de salud
+  how: ¿Cómo?
+  why: ¿Porqué?
+  how_answer: Entra tu temperatura y tus síntomas a esta página todos los días. Esta información va a estar disponible para hospitales y centros de atención médica.
+  why_answer: Esta información ayuda a las organizaciones a planear la distribución de recursos y proveer apoyo donde es inmediatamente necesario. Tomandote la temperatura todos los dia nos ayudas a obtener valiosa información que en tiempo real que puede salvar vidas.
+  begin_data_entry: Comenzar
+  temperature: temperatura
+  zip_code: código postal
+  postal_code_clarify: ZIP code
+  age: años
+  sex: sexo
+  optional: opcional
+  experiencing_any_symptoms: ¿Experimenta alguno de los siguientes síntomas?
+  choose_all_that_apply: elige todo lo que corresponda
+  degrees_f: grados Fahrenheit
+  degrees_f_short: (° Fahrenheit)
+  household_members: Household members
+  male: masculina
+  female: feminino
+  other: otro
+  submit_temperature: enviar temperatura
+  sumbit_temperature_for_person: enviar temperatura para no. 

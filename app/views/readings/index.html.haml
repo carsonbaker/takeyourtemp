@@ -7,28 +7,34 @@
     #cta{class: @household_count > 1 ? 'sm-show' : ''}
 
       <h2 class='serif center' id='pledge'>
-      <small class='lite muted'>pledge to</small>
+      %small.lite.muted= t(:pledge_to)
       <br>
       <strong style="color: orange;">#TakeYourTemp</strong>
       <br>
-      <span class='lite muted'>every day</span>
+      %span.lite.muted= t(:every_day)
       </h2>
       <div class="center">
-      <big><strong>Stop the spread</strong> of COVID-19 by helping<br/> crowdsource temperature and symptom data.</big></div>
+      <big>
+      = t(:stop_the_spread_cta).html_safe
+      </big></div>
 
       <hr class='mt3 mb3' style='width: 50%;'>
       <div class="line-squeeze mx-auto">
 
       <div class="center sm-hide">
-      <a href="#" id='gs'><span class="h2">Begin Data Entry</span></a>
+      <a href="#" id='gs'><span class="h2">
+      = t(:begin_data_entry)
+      </span></a>
       <br>
       <br>
       </div>
 
-      <p><b>How?</b></p>
-      <p>Submit your temperature and symptoms daily. This data will be available to public health officials.</p>
-      <p><b>Why?</b></p>
-      <p>Help provide data on where COVID-19 is spreading so that health officials can better allocate resources. By taking your temperature daily, you provide real-time actionable data.</p>
+      %p="<b>#{t(:how)}</b>".html_safe
+      %p= t(:how_answer)
+
+      %p="<b>#{t(:why)}</b>".html_safe
+      %p= t(:why_answer)
+
 
       </div>
 

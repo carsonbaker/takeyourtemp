@@ -1,23 +1,25 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  pledge_to: "pledge to"
+  every_day: "every day"
+  stop_the_spread_cta: <strong>Stop the spread</strong> of COVID-19 by helping <br/>crowdsource temperature and symptom data.
+  how: How?
+  why: Why?
+  how_answer: Submit your temperature and symptoms daily. This data will be available to public health officials.
+  why_answer: Help provide data on where COVID-19 is spreading so that health officials can better allocate resources. By taking your temperature daily, you provide real-time actionable data.
+  temperature: Temperature
+  zip_code: Zip code
+  postal_code_clarify: (postal code)
+  begin_data_entry: Begin data entry
+  age: Age
+  sex: Sex
+  optional: optional
+  experiencing_any_symptoms: Are you experiencing any of the following symptoms?
+  choose_all_that_apply: choose all that apply
+  degrees_f: (degrees Fahrenheit)
+  degrees_f_short: (deg. Fahrenheit)
+  household_members: Household members
+  male: Male
+  female: Female
+  other: Other
+  submit_temperature: Submit temperature
+  submit_temperature_for_person: Submit temperature for person

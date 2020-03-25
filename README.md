@@ -1,3 +1,6 @@
+# TakeYourTemp
+https://www.takeyourtemp.org/
+
 This is a simple Rails application that depends only on Postgres.
 
 ### Social

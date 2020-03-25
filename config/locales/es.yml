@@ -19,12 +19,12 @@ es:
   degrees_f: grados Fahrenheit
   degrees_f_short: (° Fahrenheit)
   household_members: Household members
-  male: masculina
+  male: masculino
   female: feminino
   other: otro
   submit_temperature: enviar temperatura
   sumbit_temperature_for_person: enviar temperatura para no. 
-  household_members: personas
+  household_members: Miembros de familia
   add: añadir
   open_access_is_provided: "Nota: proveemos acceso directo a la informacion solo a entidades medicas y de salud gubernamental."
 
@@ -34,10 +34,10 @@ es:
   fatigue: fatiga
   sore_throat: dolor de garganta
   runny_nose: nariz que moquea
-  aches: dolores
+  aches: dolores en el cuerpo
   vomiting: vómitos
-  diarrhea: Diarrea
-  none_of_these: ninguno de esos
+  diarrhea: diarrea
+  none_of_these: ningun síntoma
 
   # Success page
   thank_you_for_adding_to_the_dataset: Gracias por su información.

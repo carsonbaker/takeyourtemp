@@ -1,4 +1,7 @@
 en:
+
+  # Home page
+
   pledge_to: "pledge to"
   every_day: "every day"
   stop_the_spread_cta: <strong>Stop the spread</strong> of COVID-19 by helping <br/>crowdsource temperature and symptom data.
@@ -23,3 +26,31 @@ en:
   other: Other
   submit_temperature: Submit temperature
   submit_temperature_for_person: Submit temperature for person
+  household_members: Household members
+  add: add
+  open_access_is_provided: "Note: Open access to data is provided to health care officials."
+
+  # Symptoms
+  cough: cough
+  shortness_of_breath: shortness of breath
+  fatigue: fatigue
+  sore_throat: sore throat
+  runny_nose: runny nose
+  aches: aches
+  vomiting: vomiting
+  diarrhea: diarrhea
+  none_of_these: none of these
+
+  # Success page
+
+  thank_you_for_adding_to_the_dataset: Thank you for adding to the dataset!
+  please_submit_tomorrow: Please submit your temperature again tomorrow.
+  want_a_reminder: If you want a reminder to take your temperature, please leave us your email address or a phone number where we can send you an SMS.
+  privacy_note: <b>Note:</b> Contact information will <em>not</em> be associated with any medical data. 
+  email_placeholder: your@email.com
+  email: Email
+  phone: Telephone
+  for_the_latest_info: For the latest information about COVID-19, visit...
+  cdc_long: Center for Disease Control
+  who_long: World Health Organization
+  yes_send_me_reminders: Yes, send me reminders

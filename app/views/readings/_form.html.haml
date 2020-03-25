@@ -26,7 +26,7 @@
 
           - if @household_count < 10
             .left.ml2
-              = link_to "(Add +)", "/add-person"
+              = link_to "(#{t(:add)} +)", "/add-person"
 
     .clearfix.col-12
       .col-12
@@ -102,31 +102,31 @@
               %small.muted= "(#{t(:choose_all_that_apply)})"
               .symptoms.mt2
                 = f.check_box :sym_cough, checked: @prev&.sym_cough, id: :s1, class: 'sym'
-                = f.label :sym_cough, "cough", class: 'mb1', for: :s1
+                = f.label :sym_cough, t(:cough), class: 'mb1', for: :s1
 
                 = f.check_box :sym_short_breath, checked: @prev&.sym_short_breath, id: :s2, class: 'sym'
-                = f.label :sym_short_breath, "shortness of breath", class: 'mb1', for: :s2
+                = f.label :sym_short_breath, t(:shortness_of_breath), class: 'mb1', for: :s2
 
                 = f.check_box :sym_fatigue, checked: @prev&.sym_fatigue, id: :s3, class: 'sym'
-                = f.label :sym_fatigue, "fatigue", class: 'mb1', for: :s3
+                = f.label :sym_fatigue, t(:fatigue), class: 'mb1', for: :s3
 
                 = f.check_box :sym_sore_throat, checked: @prev&.sym_sore_throat, id: :s4, class: 'sym'
-                = f.label :sym_sore_throat, "sore throat", class: 'mb1', for: :s4
+                = f.label :sym_sore_throat, t(:sore_throat), class: 'mb1', for: :s4
 
                 = f.check_box :sym_runny_nose, checked: @prev&.sym_runny_nose, id: :s5, class: 'sym'
-                = f.label :sym_runny_nose, "runny nose", class: 'mb1', for: :s5
+                = f.label :sym_runny_nose, t(:runny_nose), class: 'mb1', for: :s5
 
                 = f.check_box :sym_aches, checked: @prev&.sym_aches, id: :s6, class: 'sym'
-                = f.label :sym_aches, "aches", class: 'mb1', for: :s6
+                = f.label :sym_aches, t(:aches), class: 'mb1', for: :s6
 
                 = f.check_box :sym_vomiting, checked: @prev&.sym_vomiting, id: :s7, class: 'sym'
-                = f.label :sym_vomiting, "vomiting", class: 'mb1', for: :s7
+                = f.label :sym_vomiting, t(:vomiting), class: 'mb1', for: :s7
 
                 = f.check_box :sym_diarrhea, checked: @prev&.sym_diarrhea, id: :s8, class: 'sym'
-                = f.label :sym_diarrhea, "diarrhea", class: 'mb1', for: :s8
+                = f.label :sym_diarrhea, t(:diarrhea), class: 'mb1', for: :s8
 
                 = f.check_box :sym_none_of_these, checked: @prev&.sym_none_of_these, id: :none_of_these
-                = f.label :sym_none_of_these, "<em>none of these</em>".html_safe, class: 'mb1', for: :none_of_these
+                = f.label :sym_none_of_these, "<em>#{t(:none_of_these)}</em>".html_safe, class: 'mb1', for: :none_of_these
 
           - if @household_count > 1
             = f.submit "#{t(:submit_temperature_for_person)} #{@household_person}", class: "btn btn-primary btn-lg"

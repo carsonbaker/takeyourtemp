@@ -18,6 +18,9 @@ gem 'dalli',             '~> 2.7'
 # Browser
 gem 'browser'
 
+# Helps with localization
+gem 'accept_language'
+
 # Stop bots
 gem "recaptcha"
 

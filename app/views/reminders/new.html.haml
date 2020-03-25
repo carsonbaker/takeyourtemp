@@ -6,13 +6,11 @@
 
   %header.col.col-12.md-col-8{style: "border-right: 1px solid #eee; padding-right: 3rem;"}
 
-    %h2.bold Thank you for adding to the dataset!
+    %h2.bold= t(:thank_you_for_adding_to_the_dataset)
 
-    .h1.bold.line-wide{style: "color: orange"}
-      Please submit your temperature again tomorrow.
+    .h1.bold.line-wide{style: "color: orange"}= t(:please_submit_tomorrow)
 
-    %h3.line-wide
-      If you want a reminder to take your temperature, please leave us your email address or a phone number where we can send you an SMS.
+    %h3.line-wide= t(:want_a_reminder)
 
     .clearfix.line-wide
 
@@ -22,34 +20,34 @@
          
           .clearfix
 
-            .mb2 <b>Note:</b> Contact information will <em>not</em> be associated with any medical data.
+            .mb2=t(:privacy_note).html_safe
             
             %hr.mt2.mb2
 
             .col
-              = f.label :email, class: 'mb1 bold'
+              = f.label :email, t(:email), class: 'mb1 bold'
               %br
-              = f.email_field :email, placeholder: "your@email.com"
+              = f.email_field :email, placeholder: t(:email_placeholder)
 
             .col.ml3
               %br
               .muted.mt2= "or"
 
             .col.ml3
-              = f.label :phone, class: 'mb1 bold'
+              = f.label :phone, t(:phone), class: 'mb1 bold'
               %br
               = f.text_field :phone, placeholder: "(123) 123-1234"
 
           %br
 
-          = f.submit "Yes, send me reminders", class: 'btn btn-primary'
+          = f.submit t(:yes_send_me_reminders), class: 'btn btn-primary'
 
   %article#form.col.col-12.md-col-4.md-px3
     
-    %p For the latest information about COVID-19, visit:
+    %p= t(:for_the_latest_info)
 
-    %h4.mb1 Center for Disease Control
+    %h4.mb1= t(:cdc_long)
     = link_to "https://www.cdc.gov/coronavirus/2019-ncov/index.html", "https://www.cdc.gov/coronavirus/2019-ncov/index.html"
 
-    %h4.mb1 World Health Organization
+    %h4.mb1= t(:who_long)
     = link_to "https://www.who.int/emergencies/diseases/novel-coronavirus-2019", "https://www.who.int/emergencies/diseases/novel-coronavirus-2019"

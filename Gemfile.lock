@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    accept_language (1.0.0)
     actioncable (6.0.2.2)
       actionpack (= 6.0.2.2)
       nio4r (~> 2.0)
@@ -206,6 +207,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  accept_language
   aws-sdk-rails (~> 2.1.0)
   aws-sdk-s3 (~> 1.34.0)
   aws-sdk-ses (~> 1.17.0)

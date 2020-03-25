@@ -1,4 +1,5 @@
 es:
+  # Home page
   pledge_to: "tu promesa"
   every_day: "cada día"
   stop_the_spread_cta: <strong>Ayúdanos a parar el COVID-19</strong><br>Sabiendo quien tiene fiebre o síntomas juntos<br> podemos proveer valiosa información a los sistemas de salud
@@ -23,3 +24,30 @@ es:
   other: otro
   submit_temperature: enviar temperatura
   sumbit_temperature_for_person: enviar temperatura para no. 
+  household_members: personas
+  add: añadir
+  open_access_is_provided: "Nota: Se proporciona acceso abierto a los datos a los funcionarios de atención médica."
+
+  # Symptoms
+  cough: tos
+  shortness_of_breath: falta de aliento
+  fatigue: fatiga
+  sore_throat: dolor de garganta
+  runny_nose: nariz que moquea
+  aches: dolores
+  vomiting: vómitos
+  diarrhea: Diarrea
+  none_of_these: ninguno de esos
+
+  # Success page
+  thank_you_for_adding_to_the_dataset: Gracias por su information.
+  please_submit_tomorrow: Por favor no se olvide de repetir el proceso mañana.
+  want_a_reminder: Si quiere un recordatorio dejenos su direccion de mail o número telefónico para que podamos mandarle un SMS.
+  privacy_note: <b>Nota:</b> Su contacto no está de ninguna manera asociado a su información médica.
+  email_placeholder: email@ejemplo.com
+  email: Email
+  phone:  Teléfono
+  for_the_latest_info: Para obtener la información más reciente sobre COVID-19, visite...
+  cdc_long: Centros para el Control y la Prevención de Enfermedades
+  who_long: Organización Mundial de la Salud
+  yes_send_me_reminders: Sí, envíame recordatorios

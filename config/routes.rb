@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   controller :main do
     post "/token",  action: :token
     get "/faq",     action: :faq, as: :faq
-
+    get "/initiative", action: :initiative
     get "/privacy", action: :privacy
     get "/terms",   action: :terms
   end

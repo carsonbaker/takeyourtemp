@@ -26,7 +26,7 @@ es:
   sumbit_temperature_for_person: enviar temperatura para no. 
   household_members: personas
   add: añadir
-  open_access_is_provided: "Nota: Se proporciona acceso abierto a los datos a los funcionarios de atención médica."
+  open_access_is_provided: "Nota: proveemos acceso directo a la informacion solo a entidades medicas y de salud gubernamental."
 
   # Symptoms
   cough: tos

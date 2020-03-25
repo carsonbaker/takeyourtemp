@@ -6,4 +6,3 @@ class Contacting
   validates :from, format: { with: URI::MailTo::EMAIL_REGEXP }
 
 end
-

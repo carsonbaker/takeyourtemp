@@ -4,6 +4,7 @@ class DataController < ApplicationController
 
   def index
     @rows = []
+    @rows << ["Wed, Mar 25 @ 1718 UTC", "2020-03-25_17-18-06.dump", "http://takeyourtemp.org.s3.amazonaws.com/2020-03-25_17-18-06.dump", 885, "postgres"]
     @rows << ["Tue, Mar 24 @ 1824 UTC", "2020-03-24_18-24-15.dump",
       "http://takeyourtemp.org.s3.amazonaws.com/2020-03-24_18-24-15.dump", 683, "postgres"]
     @rows << ["Mon, Mar 23 @ 1810 UTC", "2020-03-23_18-10-49.dump",

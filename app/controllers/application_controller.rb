@@ -19,9 +19,8 @@ class ApplicationController < ActionController::Base
   def best_locale_from_request
     return I18n.default_locale unless request.headers.key?('HTTP_ACCEPT_LANGUAGE')
 
-    string = request.headers.fetch('HTTP_ACCEPT_LANGUAGE')
+    string = params[:lang] || request.headers.fetch('HTTP_ACCEPT_LANGUAGE')
     locale = AcceptLanguage.intersection(string, I18n.default_locale, *I18n.available_locales)
-
 
     # If the server cannot serve any matching language,
     # it can theoretically send back a 406 (Not Acceptable) error code.

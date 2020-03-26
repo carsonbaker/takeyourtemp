@@ -74,10 +74,14 @@ input, textarea {
   input {
     padding: calc(1.25rem + ((1vw - 0.3rem) * 0.5556)) calc(.75rem + ((1vw - 0.3rem) * 0.5556)) !important;
     font-size: calc(1.5rem + ((1vw - 0.5rem) * 0.5556));
-    @supports (-moz-appearance:none) {
+    @supports (-moz-appearance:none) { // firefox
       font-size: 1.5rem !important;
       height: 3rem !important;
       padding: 0rem 1rem !important;
+    }
+    _:-ms-lang(x), .foo {
+      padding: inherit !important;
+      font-size: inherit !important;
     }
   }
 }

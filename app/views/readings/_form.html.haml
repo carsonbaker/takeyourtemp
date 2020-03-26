@@ -9,7 +9,6 @@
 
     = recaptcha_v3(action: "homepage")
 
-
     .col-12
       .p2
         .clearfix
@@ -51,15 +50,15 @@
               = errors_for(f, :temp_f)
 
 
-          = form_group(class: 'big-group') do
+          = form_group do
 
             .col.col-6
-              = f.label :zipcode do
+              = f.label :zipcode, class: 'embiggen' do
                 = t(:zip_code) + '*'
                 %br
                 %small.muted= t(:postal_code_clarify)
             .col.col-6
-              = f.text_field :zipcode, style: "width: 8em;", value: @prev&.zipcode, class: 'zip-lookup-field-zipcode', pattern: "[0-9]*", inputmode: 'numeric'
+              = f.text_field :zipcode, style: "width: 8em;", value: @prev&.zipcode, class: 'embiggen zip-lookup-field-zipcode', pattern: "[0-9]*", inputmode: 'numeric'
               = errors_for(f, :zipcode)
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_180749) do
+ActiveRecord::Schema.define(version: 2020_03_28_025918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_03_24_180749) do
     t.string "site"
     t.datetime "created_at"
     t.string "browser_uuid"
-    t.float "recaptcha_score"
     t.integer "household_person"
     t.boolean "sym_cough"
     t.boolean "sym_short_breath"

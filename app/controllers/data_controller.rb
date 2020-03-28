@@ -1,3 +1,5 @@
+require 'csv'
+
 class DataController < ApplicationController
 
   before_action :authenticate
@@ -10,6 +12,21 @@ class DataController < ApplicationController
       "http://takeyourtemp.org.s3.amazonaws.com/2020-03-24_18-24-15.dump", 683, "postgres"]
     @rows << ["Mon, Mar 23 @ 1810 UTC", "2020-03-23_18-10-49.dump",
       "http://takeyourtemp.org.s3.amazonaws.com/2020-03-23_18-10-49.dump", 48, "postgres"]
+    respond_to do |f|
+      f.csv { index_csv }
+      f.html { render 'index' }
+    end
+  end
+
+  def index_csv
+    csv_output = CSV.generate do |csv|
+      csv << Reading.column_names
+      Reading.all.each do |m|
+        csv << m.attributes.values
+      end
+    end
+    render plain: csv_output
+
   end
 
   def authenticate

@@ -1,0 +1,60 @@
+FROM ruby:2.6.5-alpine
+
+ARG PRECOMPILE_ASSETS="true"
+
+ENV BUILD_PACKAGES build-base libxml2-dev libxslt-dev zlib-dev libffi-dev postgresql-dev linux-headers
+ENV RUNTIME_PACKAGES nodejs tzdata bash postgresql-dev libcurl git
+
+# Update and install all of the required packages.
+# At the end, remove the apk cache
+RUN apk add --update --no-cache $RUNTIME_PACKAGES && apk add --update --no-cache --virtual build-packages $BUILD_PACKAGES && rm -rf /var/cache/apk/*
+
+# Add a user named 'rails' with no assigned password
+# and configure the main working directory
+RUN adduser -D -g "" rails && mkdir /app /app/tmp /app/tmp/pids && chown rails:rails /app /app/tmp /app/tmp/pids
+
+# Copy the Gemfile as well as the Gemfile.lock and install the RubyGems.
+# This is a separate step so the dependencies will be cached unless
+# changes to one of those two files are made.
+USER rails
+WORKDIR /app
+COPY --chown=rails:rails Gemfile Gemfile.lock ./
+
+# throw errors if Gemfile has been modified since Gemfile.lock
+# ENV        BUNDLE_APP_CONFIG "/app/.bundle"
+# RUN        bundle config --global frozen 1
+
+RUN gem install bundler -v '2.0.2'
+RUN bundle install --jobs 4 --retry 5
+
+# Get rid of the packages that we only used to build the bundle
+USER root
+RUN apk del build-packages
+
+# Add ./bin to $PATH so that binstubs work and we don't have
+# to bundle exec everything all the time
+ENV PATH="./bin:${PATH}"
+
+# TODO is this necessary?
+# RUN chown -R rails:rails /usr/local/bundle/
+
+USER rails
+
+WORKDIR /app
+
+# Copy the main application
+
+COPY --chown=rails:rails Rakefile config.ru ./
+COPY --chown=rails:rails public ./public
+COPY --chown=rails:rails bin ./bin
+COPY --chown=rails:rails lib ./lib
+COPY --chown=rails:rails db ./db
+COPY --chown=rails:rails config ./config
+COPY --chown=rails:rails app ./app
+
+RUN if [ "${PRECOMPILE_ASSETS}" = "true" ] ; then RAILS_ENV=production DATABASE_URL='nulldb://nohost'PRECOMPILING_ASSETS=true SECRET_KEY_BASE=itdontmatter ruby -S rake assets:precompile; fi
+
+EXPOSE 3000
+
+# The main command to run when the container starts.
+CMD ["puma", "-C", "config/puma.rb"]

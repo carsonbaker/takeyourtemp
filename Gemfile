@@ -16,7 +16,7 @@ gem 'hamlit'
 gem 'listen', '~> 3.0.5', group: :development
 gem 'pg'
 gem 'pry', group: [:development, :test]
-gem 'puma', '~> 3.12.0'
+gem 'puma', '~> 4.3.8'
 gem 'rails', '~> 6.0.2.1'
 gem 'rspec-rails', group: [:development, :test]
 gem 'sass-rails', '~> 5.0.7'

@@ -8,7 +8,7 @@ gem 'aws-sdk-rails', '~> 2.1.0'
 gem 'aws-sdk-s3', '~> 1.34.0'
 gem 'aws-sdk-ses', '~> 1.17.0'
 gem 'browser'
-gem 'dalli', '~> 2.7'
+gem 'dalli', '~> 3.2'
 gem 'dotenv-rails', group: [:development, :test]
 gem 'factory_bot_rails', group: [:development, :test]
 gem 'ffaker', group: [:development, :test]
